@@ -1,16 +1,48 @@
 const validator = require('validator')
 const chalk = require('chalk')
+const yargs = require('yargs')
 const ctx = new chalk.Instance({level:0})
 
-console.log(process.argv)
+/////////add, remove, read, list
 
-const command = process.argv[2]
+/////////create add command
+yargs.command({
+    command: 'add',
+    describe: 'Add a new note',
+    handler: function() {
+        console.log('Adding a new note !!')
+    }
+})
 
-if (command === 'add') {
-    console.log("Adding note !!")
-} else if (command === 'remove') {
-    console.log("Remove note !!")
-}
+/////////create remove command
+yargs.command({
+    command: 'remove',
+    describe: 'Remove a  note',
+    handler: function() {
+        console.log('Removing the note !!')
+    }
+})
+
+/////////create read command
+yargs.command({
+    command: 'read',
+    describe: 'Read a note',
+    handler: function() {
+        console.log('Reading a note !!')
+    }
+})
+
+/////////create list command
+yargs.command({
+    command: 'list',
+    describe: 'List all the notes',
+    handler: function() {
+        console.log('Listing out all the notes !!')
+    }
+})
+
+
+console.log(yargs.argv)
 
 /////////getting notes from notes.js and printing that
 // const getNotes = require('./notes.js')
