@@ -2,6 +2,7 @@ const validator = require('validator')
 const chalk = require('chalk')
 const yargs = require('yargs')
 const ctx = new chalk.Instance({level:0})
+const notesUtils = require('./notes.js')
 
 /////////add, remove, read, list
 
@@ -22,8 +23,7 @@ yargs.command({
         }
     },
     handler: function(argv) {
-        console.log('Title: ' + argv.title)
-        console.log('Body: ' + argv.body)
+        notesUtils.addNote(argv.title, argv.body)
     }
 })
 
