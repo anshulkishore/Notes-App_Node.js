@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "bin": "D:/Study/Node_JS_Udemy_Course/node-course/notes-app/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

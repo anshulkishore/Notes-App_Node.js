@@ -2,7 +2,6 @@ const chalk = require('chalk')
 const yargs = require('yargs')
 const notesUtils = require('./notes.js')
 
-console.log(notesUtils.getNotes())
 /////////add, remove, read, list
 
 /////////create add command
