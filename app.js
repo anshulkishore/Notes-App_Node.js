@@ -1,7 +1,5 @@
-const validator = require('validator')
 const chalk = require('chalk')
 const yargs = require('yargs')
-const ctx = new chalk.Instance({level:0})
 const notesUtils = require('./notes.js')
 
 console.log(notesUtils.getNotes())
@@ -48,8 +46,15 @@ yargs.command({
 yargs.command({
     command: 'read',
     describe: 'Read a note',
-    handler() {
-        console.log('Reading a note !!')
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: "string"
+        }
+    },
+    handler(argv) {
+        notesUtils.readNote(argv.title)
     }
 })
 
