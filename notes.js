@@ -61,6 +61,24 @@ const readNote = (title) => {
     }
 }
 
+const updateNote = (title, body) => {
+    const notes = loadNotes()
+
+    const notesToKeep = notes.filter((note) => note.title !== title)
+
+    if (notes.length === notesToKeep.length) {
+        console.log(chalk.red.inverse('No note found with this title. New note added with title: ' + title))
+    } else {
+        console.log(chalk.green.inverse('Note Updated !!'))
+    }
+
+    notesToKeep.push({
+        title: title,
+        body: body
+    })
+    saveNotes(notesToKeep)
+}
+
 //function to load all stored notes into an array
 const loadNotes = () => {
     try {
@@ -81,5 +99,6 @@ module.exports = {
     addNote: addNote,
     removeNote: removeNote,
     listNodes: listNodes,
-    readNote: readNote
+    readNote: readNote,
+    updateNote: updateNote
 }
